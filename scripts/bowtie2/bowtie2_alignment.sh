@@ -2,6 +2,7 @@
 #First line tells ubuntu what interpreter to use
 #To run this script in ubuntu terminal, supply the terminal with the correct directory using cd command. Then, write ./bowtie2_alignment.sh
 
+# The purpose of this script is to align a fasta file containing sequence information for the final list of RAD loci. 
 
 #Explanation of terms:
 #bowtie2 -q -x <bt2-idx> -U <r> -S <sam>
@@ -17,7 +18,7 @@
 src=/mnt/hgfs/D/sequencing_data/Herring_Coastwide_PopulationStructure/output_stacks_populations/filtered_haplotypesANDsnps_1104indiv_7261loci/genome_alignment
 
 
-# Give the basename of the files that you want to align
+# Give the basename of the fasta file that you want to align
 
 files="
 catalog_loci_7261
@@ -25,5 +26,5 @@ catalog_loci_7261
 
 for file in $files
 do
-    bowtie2 -f -x Atlantic_herring -U ${file}.fasta -S ${file}.sam 2> ${file}_bowtie.log
+    bowtie2 -f -x GCF_000966335.1_ASM96633v1_genomic -U ${file}.fasta -S ${file}.sam 2> ${file}_bowtie.log
 done

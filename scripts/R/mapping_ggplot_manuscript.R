@@ -180,7 +180,7 @@ scale_bar <- function(lon, lat, distance_lon, distance_lat, distance_legend, dis
 
 ##########################################################################################################
 
-# MAKE SOME PLOTS!!!!
+# plot the data
 
 # set the breaks for your color ramp
 mybreaks=c(0, 30, 60, 90, 120, 150, 180)
@@ -236,7 +236,7 @@ plot1b <- ggplot() +
 
 plot1b
 
-# combine the plots
+# Combine the plots
 
 ggdraw() +
   draw_plot(plot1a, x = -0.1, y = 0.05, width = 0.8, height = 0.8) + #manhattan plot
@@ -246,35 +246,3 @@ ggdraw() +
                   x = c(0, 0.62, 0.61), y = c(0.9, 0.9, 0.45))
 
 
-### Make maps for pHD defense
-
-wa_df <- filter(my_data, Region == "Washington")
-bc_df <- filter(my_data, Region == "British Columbia")
-ak_df <- filter(my_data, Region == "Alaska")
-
-
-ggplot() +
-  geom_polygon(data = USA, aes(x=long, y = lat, group = group), fill=" grey47", alpha=0.3) +
-  geom_polygon(data = Canada, aes(x=long, y = lat, group = group), fill=" grey17", alpha=0.3)+
-  geom_point(data=wa_df, aes(x=longitude, y=latitude, color= days), size = 3, alpha = 0.9) +
-  geom_point(data=bc_df, aes(x=longitude, y=latitude, color= days), size = 3, alpha = 0.0) +
-  geom_point(data=ak_df, aes(x=longitude, y=latitude, color= days), size = 3, alpha = 0.0) +
-  theme(panel.background = element_rect(fill = "aliceblue"), 
-        panel.grid.major = element_line(colour = NA), 
-        axis.text=element_text(size=12),
-        axis.title =element_text(size=14),
-        legend.title=element_text(size=10),
-        legend.text=element_text(size=10),
-        legend.position = c(0.04, 0.4)) +
-  panel_border(colour = "black", size = 0.5, linetype = 1, remove = FALSE) +
-  scale_color_viridis(option="plasma", 
-                      name="Sampling date", 
-                      breaks = mybreaks, labels = mylabels, begin = 0, end = 1) + 
-  coord_map(xlim= c(-119, -139),  ylim = c(46,60)) +
-  labs(x = "Longitude", y = "Latitude") +
-  annotate("text", x = -123, y = 54, label = "British Columbia", size = 4) +
-  annotate("text", x = -133, y = 56.5, label = "Alaska", size = 4) +
-  annotate("text", x = -121.5, y = 46.5, label = "Washington", size = 4)+
-  scale_bar(lon = -136, lat = 47.3, 
-            distance_lon = 150, distance_lat = 15, distance_legend = 40, 
-            dist_unit = "km", orientation = FALSE)

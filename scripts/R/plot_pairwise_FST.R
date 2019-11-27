@@ -50,7 +50,7 @@ ggplot(data = my_df3, aes(x=Var1, y=Var2, fill=fst)) +
   geom_tile()
 
 
-# specify a vector or factor? that contains the order that you want populations plotted in.
+# specify a vector that contains the order that you want populations plotted in.
 
 my_order <- c("Squaxin 2007", "Squaxin 2014", 
               "Port Orchard",  "Quilcene", "Port Gamble", 
@@ -112,7 +112,7 @@ upper_tri <- get_upper_tri(my_mat2)
 upper_tri
 
 
-##Use the package reshape to melt the matrix into a fucking df again:
+##Use the package reshape to melt the matrix into a df again:
 
 my_df4 <- melt(upper_tri, value.name = "fst")
 head(my_df4)
