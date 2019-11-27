@@ -1,0 +1,13 @@
+# The purpose of this script is to filter a vcf file for things like missing data, minor allele frequency, etc.
+# vcftools takes a vcf file as input
+
+# Explanation of parameters:
+# --vcf = name of vcf input file
+# --max-missing = 
+# --maf = 
+# --recode = 
+# --out= 
+# --missing-indv = 
+
+# First filtering step - rough cut, to remove loci with lots of missing genotypes
+vcftools --vcf batch_1.vcf --max-missing 0.75 --mac 3  --minDP 10 --recode --recode-INFO-all --out batch_1.g8mac3

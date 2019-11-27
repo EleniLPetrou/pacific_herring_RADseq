@@ -7,3 +7,4 @@ In brief, we collected tissue samples from  ~1,300 spawning adult herring from s
 Using the *stacks* pipeline, we assembled sequencing reads into loci and called genotypes. 
 After filtering the data using *vcftools* , we conducted analyses on the spatial and temporal population structure of Pacific herring. These were mainly conducted using  R packages such as *bioconductor* and *tidyverse*. 
 
+If you look in the folder titled "scripts", you will see the code that we used to analyze the data. 
