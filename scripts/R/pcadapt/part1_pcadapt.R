@@ -1,19 +1,24 @@
+install.packages("devtools")
+library("devtools")
+install_github("jdstorey/qvalue")
+
+
+
 # The purpose of this script is to run an outlier test using the R package pcadapt.
 # It takes a vcf file as input
 
 library(pcadapt)
+library(dplyr)
+library(ggplot2)
 library(qvalue)
-library(tidyverse)
-library(plyr)
-
 
 #setwd
 
-setwd("D:/sequencing_data/Herring_Coastwide_PopulationStructure/output_stacks_populations/filtered_haplotypesANDsnps_1104indiv_7261loci/pcadapt")
+setwd("D:/sequencing_data/Herring_Coastwide_PopulationStructure/output_stacks_populations/filtered_haplotypesANDsnps_1104indiv_7261loci/pcadapt_GCA900700415")
+list.files()
 
 # Names of the files you will need
-vcf_file <- "batch_1_firstsnp.vcf"
-metadata_file <- "locus_metadata.txt" #optional for ploting
+vcf_file <- "batch_1_firstsnp_GCA900700415.vcf" 
 poplist_file <- "poplist_names.txt"  #optional for plotting
 
 
@@ -35,7 +40,8 @@ filename <- read.pcadapt(vcf_file, type = "vcf", allele.sep = "/")
 # on the correlations between SNPs and the first K principal components (PCs). 
 #To choose K, principal component analysis should first be performed with a large enough number of principal components (e.g. K=20)
 
-x <- pcadapt(input = filename, K = 50)
+x <- pcadapt(input = filename,method = "mahalanobis",
+             min.maf = 0.05, K = 50)
 
 #The 'scree plot' displays in decreasing order the percentage of variance explained 
 #by each PC. Up to a constant, it corresponds to the eigenvalues in decreasing order. 
@@ -63,7 +69,8 @@ plot(x, option = "scores", i = 3, j = 4, pop = poplist.names)
 
 # Using the results from the screeplot function above, re-run the analysis using K principal components
 
-x <- pcadapt(filename, K = 10)
+x <- pcadapt(input = filename,method = "mahalanobis",
+             min.maf = 0.05, K = 10)
 summary(x)
 
 #The object x returned by the function pcadapt contains numerical 
@@ -115,11 +122,13 @@ plot(x, option = "stat.distribution")
 #transforming the p-values into q-values. 
 
 qval <- qvalue(x$pvalues)
-qval$qvalues
+head(qval)
+class(qval)
+my_qvalues <- qval$qvalues
 hist(qval$qvalues, xlab = "q-values", main = NULL, breaks = 100, col = "orange")
 
-#For a given ?? (real valued number between 0 and 1), SNPs with q-values less than ?? 
-#will be considered as outliers with an expected false discovery rate bounded by ??. 
+#For a given number (real valued number between 0 and 1), SNPs with q-values less than number 
+#will be considered as outliers with an expected false discovery rate bounded by number. 
 #The false discovery rate is defined as the percentage of false discoveries among the 
 #list of candidate SNPs. 
 
@@ -155,11 +164,12 @@ head(mydf)
 vcf_df <- read.delim(vcf_file, sep = "\t", comment.char = "#", header = FALSE)
 vcf_df[1:10, 1:10]
 stacks_catalog_id <- (vcf_df$V3)
-head(stacks_catalog_id)
+chrom <- (vcf_df$V1)
+pos <- (vcf_df$V2)
 pvalue <-x$pvalues 
 
 # join the locus_list with the qvalue list(qval)
-results_df <- cbind.data.frame(stacks_catalog_id,mydf, qval)
+results_df <- cbind.data.frame(chrom, pos, stacks_catalog_id,mydf, my_qvalues)
 head(results_df)
 
 
@@ -167,54 +177,33 @@ head(results_df)
 # Part 7: Create a custom Manhattan plot
 
 
-metadata_df <- read.table(metadata_file, header = TRUE)
-head(metadata_df)
-head(results_df)
-
-plotting_df <- dplyr :: left_join(results_df, metadata_df, by = "stacks_catalog_id")
-head(plotting_df)
-
 # add a column that reports SNP positions in megabases
-plotting_df<- dplyr :: mutate(plotting_df, pos_mb = pos/1000000)
+results_df<- dplyr :: mutate(results_df, pos_mb = pos/1000000)
 
 # add a column with the log10 pvalues
 
-plotting_df <- dplyr :: mutate(plotting_df, neg_log10pvalue = -log10(pval))
+results_df <- dplyr :: mutate(results_df, neg_log10qvalue = -log10(my_qvalues))
 
-#### write out this dataframe to a file
-write.table(plotting_df, file = "results_pcadapt.txt", quote = FALSE, sep = "\t",
-            row.names = FALSE)
+head(results_df)
+
 
 ggplot() +
-  geom_point(data = plotting_df, 
-             aes(x= rname, y = neg_log10pvalue)) +
-  xlab("Scaffold") +
-  ylab("-log10(P-value)")+
+  geom_point(data = results_df, 
+             aes(x= chrom, y = neg_log10qvalue)) +
+  xlab("Chromosome") +
+  ylab("-log10(q-value)")+
   theme_classic()
 
 
 
 # retain only the scaffolds with significant outliers
 
-outlier_df <- plotting_df %>%
-  dplyr ::  filter( qval < alpha)
+outlier_df <- results_df %>%
+  dplyr ::  filter( my_qvalues < alpha)
 head(outlier_df)
 
-scaffold_vec <- outlier_df$rname
-unique(scaffold_vec) #there are apparently 181 scaffolds with outliers
-
-ggplot() +
-  geom_point(data = outlier_df, 
-             aes(x= rname, y = neg_log10pvalue)) +
-  xlab("Position on scaffold (Mb)") +
-  ylab("-log10(P-value)")+
-  theme_classic()
 
 
-ggplot() +
-  geom_point(data = filter(plotting_df, rname == "NW_012220751.1"), 
-             aes(x= pos_mb, y = neg_log10pvalue)) +
-  #facet_wrap(~scaffold, scales = "free")+
-  xlab("Position on scaffold (Mb)") +
-  ylab(expression(italic(F[ST])))+
-  theme_classic()
+#### write out this dataframe to a file
+write.table(results_df, file = "results_pcadapt_K10.txt", quote = FALSE, sep = "\t",
+            row.names = FALSE)
