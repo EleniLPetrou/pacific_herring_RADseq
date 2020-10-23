@@ -1,10 +1,26 @@
-# pacific_herring_RADseq
+# Analysis of Pacific herring population structure
 
-This repository contains the bash and R scripts used to analyze RAD sequencing data collected from wild spawning populations of Pacific herring. 
+![herring-img](https://github.com/EleniLPetrou/pacific_herring_RADseq/blob/master/images/herring.jpg?raw=true)
 
-In brief, we collected tissue samples from  ~1,300 spawning adult herring from spawning sites across the Pacific Northwest Coast of North America.  Then, we sequenced each sample on an Illumina 2500 or 4000, using restriction site-associated DNA (RAD) sequencing.
+This repository contains scripts used to analyze genomic data collected from wild spawning populations of Pacific herring.
+These data were produced using restriction site-associated DNA (RAD) sequencing. 
+
+## Study Overview
+
+In brief, we collected tissue samples from  ~1,300 spawning adult herring from spawning sites across the Pacific Northwest Coast of North America.  Then, we sequenced each sample on an Illumina 2500 or 4000, using RAD sequencing.
 
 Using the *stacks* pipeline, we assembled sequencing reads into loci and called genotypes. 
 After filtering the data using *vcftools* , we conducted analyses on the spatial and temporal population structure of Pacific herring. These were mainly conducted using  R packages such as *bioconductor* and *tidyverse*. 
 
-If you look in the folder titled "scripts", you will see the code that we used to analyze the data. 
+## Directory structure
+
+Scripts are organized into folders, whose name describes the analysis conducted:
+- R
+-bayenv2
+-bowtie2
+-stacks
+-vcftools
+
+
+
+
