@@ -16,10 +16,10 @@ After filtering the data using *vcftools* , we conducted analyses on the spatial
 
 Scripts are organized into folders, whose name describes the analysis conducted:
 - R
--bayenv2
--bowtie2
--stacks
--vcftools
+- bayenv2
+- bowtie2
+- stacks
+- vcftools
 
 
 
