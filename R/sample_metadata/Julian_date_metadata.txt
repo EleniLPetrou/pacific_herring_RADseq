@@ -1,0 +1,29 @@
+location	date	latitude	longitude	Spawning	Region	subregion	spawning_month	Population	julian_date
+Squaxin Pass 2007	1/17/2007	47.2	-122.94	primary spawner	Washington	Salish Sea	January	Case07	16
+Port Orchard 2014	1/27/2014	47.69	-122.59	primary spawner	Washington	Salish Sea	January	Port14	26
+Squaxin Pass 2014	2/24/2014	47.2	-122.94	primary spawner	Washington	Salish Sea	February	Squa14	54
+Similk Bay 2015	2/25/2015	48.444	-122.567	primary spawner	Washington	Salish Sea	February	SmBy15	55
+Bute Inlet 2004	3/3/2004	50.81	-124.9	inlet spawner	British Columbia	BC inlet	March	Bute04	61
+Rivers Inlet 2001	3/11/2001	51.68	-127.26	inlet spawner	British Columbia	BC inlet	March	RivIn01	69
+Port Gamble 2014	3/12/2014	47.869	-122.601	primary spawner	Washington	Salish Sea	March	PtGb14	70
+Gabriola Island 2015	3/19/2015	49.163	-123.74	primary spawner	British Columbia	Salish Sea	March	Gabr15	77
+Knight Inlet 2003	3/20/2003	51.018	-125.599	inlet spawner	British Columbia	BC inlet	March	Knight03	78
+Ellerslie 2015	3/25/2015	52.512	-128.064	primary spawner	British Columbia	Central Coast	March	Ells15	83
+Venn Passage 1999	3/25/1999	54.333	-130.417	primary spawner	British Columbia	Prince Rupert	March	Venn99	83
+Quilcene Bay 2014	3/26/2014	47.801	-122.852	primary spawner	Washington	Salish Sea	March	QlBy14	84
+Harriet Island 2014	4/2/2014	52.306	-131.228	primary spawner	British Columbia	Haida Gwaii	April 	Harr14	91
+Kwakume 2015	4/3/2015	51.703	-127.882	primary spawner	British Columbia	Central Coast	April	Kwak15	92
+Spiller Channel 2015	4/3/2015	52.361	-128.202	primary spawner	British Columbia	Central Coast	April	SpCh15	92
+Spiller Channel 2014	4/4/2014	52.361	-128.202	primary spawner	British Columbia	Central Coast	April	SpCh14	93
+Salisbury 2016	4/5/2016	57.3	-135.605	primary spawner	Alaska	SE Alaska	April	Sali16	94
+Newberry Cove 2014	4/6/2014	52.466	-131.439	primary spawner	British Columbia	Haida Gwaii	April	Newb14	95
+Sitka 2017	4/13/2017	57.115733	-135.4518	primary spawner	Alaska	SE Alaska	April	Sitka17	102
+Elliot Bay 2015	4/15/2015	47.615	-122.356	primary spawner	Washington	Salish Sea	April	ElBy15	104
+Berners Bay 2016	5/3/2016	58.682	-134.985	late spawner	Alaska	SE Alaska	May	Bern16	122
+Skidegate 1999	5/7/1999	53.244	-132.006	late spawner	British Columbia	Haida Gwaii	May	Skid99	126
+Cherry Point 2016	5/9/2016	48.932	-122.798	late spawner	Washington	Salish Sea	May	ChPt16	128
+Cherry Point 2014	5/12/2014	48.932	-122.798	late spawner	Washington	Salish Sea	May	ChPt14	131
+Metlakatla 2002	5/23/2002	54.336	-130.44	late spawner	British Columbia	Prince Rupert	May	Metla02	142
+Skidegate 2014	6/4/2014	53.244	-132.006	late spawner	British Columbia	Haida Gwaii	June	Skid14	154
+Masset 2016	6/9/2016	53.672	-132.35	late spawner	British Columbia	Haida Gwaii	June	Mass16	159
+Masset 2003	6/26/2003	53.672	-132.35	late spawner	British Columbia	Haida Gwaii	June	Mass03	176
