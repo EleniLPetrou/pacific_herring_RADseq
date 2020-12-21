@@ -171,7 +171,7 @@ There is also a file containing the Tracy-Widom statistics, which provide a test
 
 - methods:
 
-  - We visualized patterns of population structure using a principal components analysis as implemented in the program smartPCA from Eigensoft version 7.2 (Patterson et al. 2006). As input data, we used only biallelic SNPs that had been pruned for linkage disequilibrium (--indep-pairwise 100 10 0.1) using plink version 1.9 (Purcell et al. 2007). 
+  - We visualized patterns of population structure using a principal components analysis as implemented in the program smartPCA in Eigensoft version 7.2 (Patterson et al. 2006). As input data, we used only biallelic SNPs that had been pruned for linkage disequilibrium (--indep-pairwise 100 10 0.1) using plink version 1.9 (Purcell et al. 2007). 
   
 - results:
 
