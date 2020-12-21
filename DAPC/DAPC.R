@@ -14,7 +14,7 @@ library(vcfR)
 
 ######################################################################################
 # specify the relative path to the base directory where you have stored folders containing data
-base_dir <- "~/GitHub/pacific_herring_RADseq/R"
+base_dir <- "~/GitHub/pacific_herring_RADseq"
 
 #specify the name of the folder containing sample metadata
 vcf_folder <- "vcf"

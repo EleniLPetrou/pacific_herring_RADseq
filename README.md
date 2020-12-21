@@ -14,8 +14,7 @@ After filtering the data using *vcftools* , we conducted analyses on the spatial
 
 ## Directory structure
 
-Scripts are organized into folders, whose name describes the analysis conducted:
-- R
+Scripts are organized into folders, whose name describes the analysis conducted. Here are some examples:
 - bayenv2
 - bowtie2
 - stacks

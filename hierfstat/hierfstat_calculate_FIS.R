@@ -1,7 +1,7 @@
 ###################################################################################
 # Purpose of script: 
 
-# This script takes as input a genenpop file.
+# This script takes as input a genepop file.
 # It subsequently allows the user to calculate distributions of FIS, 
 # and visualize these outputs and save them to a text document.
 # Finally, based on the data visualizations, the user

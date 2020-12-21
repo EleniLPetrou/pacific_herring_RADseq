@@ -23,7 +23,7 @@ library(vegan)
 # 2. Latitude for population
 # 3. Longitude  population2
 # 4. Pairwise FST for each population
-# 5. "dummy date of spawning (in the same year) used to calculate julian date
+# 5. dummy date of spawning (in the same year) used to calculate julian date
 # 6. Other optional columns
 
 fst_data <- read.delim("FST_for_isolationbytime.txt")

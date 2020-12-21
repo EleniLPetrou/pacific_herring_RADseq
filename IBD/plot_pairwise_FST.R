@@ -1,7 +1,7 @@
 # The purpose of this script is to take a "tidy" data frame of pairwise population values
 # and create a triangular heat map
 
-# Load some libs, breh
+# Load some libraries
 library(ggplot2)
 library(reshape2)
 library(tidyverse)
