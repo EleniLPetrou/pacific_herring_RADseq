@@ -26,5 +26,5 @@ catalog_loci_7261
 
 for file in $files
 do
-    bowtie2 -f -x GCF_000966335.1_ASM96633v1_genomic -U ${file}.fasta -S ${file}.sam 2> ${file}_bowtie.log
+    bowtie2 -f -x GCA_900700415.1_Ch_v2.0.2_genomic -U ${file}.fasta -S ${file}.sam 2> ${file}_bowtie.log
 done
