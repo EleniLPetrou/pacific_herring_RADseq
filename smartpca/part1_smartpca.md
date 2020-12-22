@@ -36,7 +36,7 @@ OUTFILE=batch_1_firstsnp_GCA900700415_mapq20.recode.sorted.pruned.chromnumeric.v
 # go to dir with vcfs
 cd $VCFDIR 
 
-# vcf file has to be "bgzipped" abd indexed before renaming can take place, sigh.
+# vcf file has to be "bgzipped" and indexed before renaming can take place, sigh.
 # Then, you can index vcf with tabix. 
 bgzip $VCF 
 tabix -p vcf $VCF.gz 
