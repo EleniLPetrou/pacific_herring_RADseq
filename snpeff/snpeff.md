@@ -176,4 +176,10 @@ samtools faidx $GENOME_DIR'/'$FASTA_INFILE
 ```
 The results are in a tab-delimited text file that is marginally more user-friendly than the annotated vcf.
 
+To summarize what I did and what I found:
+
+Methods: We used SNPEff version 5.0 to evaluate whether SNPs were found within protein-coding regions and whether they represented synonymous or non-synonymous substitutions. 
+
+Results: All of the five SNPs within SYNE2 that were also strongly correlated with spawning photoperiod are found within the protein-coding sequence. The SNP with the highest correlation to spawning photoperiod (log10 Bayes Factor = 41) was a non-synonymous missense variant that resulted in an amino acid change, which is predicted to have a moderate effect on the protein structure. The other SNPs in SYNE2 are intron variants. 
+
 
