@@ -1,6 +1,6 @@
 # This script was written by Eleni on 20171130
 # It calculates Weir and Cockerham pairwise population FST (1984) using the R package hierfstat
-# and a genepop file as input
+
 
 # Load the necessary libraries
 library(hierfstat)
