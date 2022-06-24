@@ -1,23 +1,25 @@
+# The purpose of this script is to use the genetics package to calculate LD on each chromosome separately. 
+# To run the code, put all of your vcf files into a single directory.
 
-###################
+# Load libraries
 library(vcfR)
 library(genetics)
 library(tidyr)
 library(dplyr)
 library(ggplot2)
 
-#To run this code, put all of your vcf files in a single directory
+# Specify directory with vcf files
+DATADIR <- "D:/LD_GCA900700415/vcf_chrom"
 
-#setwd
-setwd("D:/sequencing_data/Herring_Coastwide_PopulationStructure/output_stacks_populations/filtered_haplotypesANDsnps_1104indiv_7261loci/LD_GCA900700415/vcf_chrom")
+# set working directory
+setwd(DATADIR)
 list.files()
 
-# Specify the names of data files used
+# Specify the names of data files used - they all end in .vcf
 fileNames <- Sys.glob("*.vcf") #this is R's version of a wildcard
 
-
 ################################################################################
-#read in vcf files in directory using vcfR, and start data processing
+# read in vcf files in directory using vcfR, and start data processing
 i = 1
 
 for (fileName in fileNames) {
