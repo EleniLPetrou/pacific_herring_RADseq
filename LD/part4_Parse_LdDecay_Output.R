@@ -9,7 +9,7 @@ library(stringr)
 ######################################################################################
 
 # specify the relative path to the directory of files
-my_path <- "D:/sequencing_data/Herring_Coastwide_PopulationStructure/output_stacks_populations/filtered_haplotypesANDsnps_1104indiv_7261loci/LD_GCA900700415/vcf_chrom"
+my_path <- "D:/LD_GCA900700415/vcf_chrom"
 # specify output filenames
 
 output_fileName <- "results_LDdecay_all"
@@ -55,6 +55,7 @@ temp_df
 df_total <- left_join(df_total, temp_df, by = c("CHROM" = "chrom"))
 head(df_total)
 
+# Save a factor that has information on the numeric number of chromosomes (herring have 26)
 df_total$chrom_num <- factor(df_total$chrom_num,
                                  levels = c("1", "2", "3", "4", "5",
                                             "6", "7", "8", "9", "10", 
