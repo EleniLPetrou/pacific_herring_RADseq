@@ -21,7 +21,7 @@ library(RColorBrewer)
 #To run this code, put all of your vcf files in a single directory
 
 #setwd
-setwd("D:/sequencing_data/Herring_Coastwide_PopulationStructure/output_stacks_populations/filtered_haplotypesANDsnps_1104indiv_7261loci/LD/vcf_chrom")
+setwd("D:/LD/vcf_chrom")
 list.files()
 
 # Specify the names of data files used
